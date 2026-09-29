@@ -1,0 +1,127 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+    --mx: 50%;
+    --my: 50%;
+}
+
+body {
+    font-family: 'Pretendard', 'Malgun Gothic', 'Apple SD Gothic Neo', sans-serif;
+    min-height: 100vh;
+    color: #1f2937;
+    /* 마우스 위치에 따라 움직이는 밝은 그라데이션 */
+    background:
+        radial-gradient(circle at var(--mx) var(--my), rgba(255, 214, 0, 0.55), transparent 45%),
+        linear-gradient(135deg, #fffbea 0%, #fff1c1 50%, #e0f2fe 100%);
+    transition: background 0.1s;
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 24px;
+}
+
+.logo {
+    height: 44px;
+    border-radius: 6px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.home-link {
+    text-decoration: none;
+    color: #374151;
+    font-size: 14px;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 8px 14px;
+    border-radius: 999px;
+}
+
+.stage {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 100px 20px 40px;
+}
+
+.url-form {
+    display: flex;
+    width: 100%;
+    max-width: 560px;
+    background: #fff;
+    border-radius: 999px;
+    overflow: hidden;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    transition: margin-top 0.5s ease;
+}
+
+.url-form input {
+    flex: 1;
+    border: none;
+    outline: none;
+    padding: 16px 24px;
+    font-size: 16px;
+    min-width: 0;
+}
+
+.url-form button {
+    border: none;
+    background: #f59e0b;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 700;
+    padding: 0 30px;
+    cursor: pointer;
+}
+
+.url-form button:hover { background: #d97706; }
+
+/* QR 생성 후: 입력창이 아래로 내려감 */
+.stage.done .url-form { margin-top: 36px; }
+
+.qr-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    animation: pop 0.4s ease;
+}
+
+.qr-section.hidden { display: none; }
+
+.qrcode {
+    background: #fff;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.qrcode:hover { transform: scale(1.03); }
+
+.qrcode img, .qrcode canvas { display: block; }
+
+.qr-hint {
+    margin-top: 12px;
+    font-size: 14px;
+    color: #6b7280;
+}
+
+.error {
+    margin-top: 12px;
+    color: #dc2626;
+    font-size: 14px;
+    min-height: 20px;
+}
+
+@keyframes pop {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+}
