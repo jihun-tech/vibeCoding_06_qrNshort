@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL단축 - QRnShort</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header">
+        <a href="../index.html" class="brand">QR<span>n</span>Short</a>
+        <a href="../index.html" class="home-link">← 홈</a>
+    </header>
+
+    <main class="container">
+        <div class="card">
+            <h1>🔗 URL단축</h1>
+            <p class="desc">긴 URL을 입력하고 '단축하기'를 누르세요.</p>
+
+            <label for="long-url">URL 입력</label>
+            <input type="url" id="long-url" placeholder="https://example.com/very/long/url" autocomplete="off">
+            <button type="button" id="shorten-btn" class="primary" disabled>단축하기</button>
+
+            <label for="short-url">단축 결과</label>
+            <div class="result-row">
+                <input type="text" id="short-url" readonly placeholder="단축된 URL이 여기에 표시됩니다">
+                <button type="button" id="copy-btn" disabled>복사</button>
+            </div>
+
+            <p id="message" class="message"></p>
+            <a id="to-qr" class="to-qr hidden" href="#">▦ 단축 URL을 QR코드로 만들기</a>
+        </div>
+        <p class="api-note">URL 단축 OpenAPI: is.gd / v.gd</p>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
